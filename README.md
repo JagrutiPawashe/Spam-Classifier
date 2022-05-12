@@ -50,6 +50,54 @@ Over here more detailed information odf the email is gathered.
   We will take email as an input in it & will return plaiin text as an out for the email. We will defie a function for that purpose
   eg- email_to_text(email)
   
-### 10. Let's do more text preprocessing, technically-> stemming
+### 10. Let's do more text preprocessing, technically-> stemming 
+ Stemming is the process of reducing a word to its word stem that affixes to suffixes and prefixes or to the roots of words known as a lemma. Stemming is important in natural language understanding (NLU) and natural language processing (NLP).
+  
+### 11. We will also need a way to replace URLs with the word "URL".
+  Over here we will change all URLs into URL
+  
+### 12. Now put all this together into a transformer that we will use to convert emails to word counters.
+### 13. We split sentences into words using Python's split() method, which uses whitespaces for word boundaries.
+  EmailToWordCounterTransformer converts each complex email to a simple text dictionary of a word (stem) (or URL, number) and number of times it occurred in that mail.
+  
+### 14. Now we have the word counts, and we need to convert them to vectors.
+  WordCounterToVectorTransformer first creates a global vocabulary of top 10 (n) most frequently occurring words in all mails (spam+ham). Then for each mail it creates a vector array of size (n) indicating how many times the each of the above top 10 words(/URL/number) has occurred in that mail (in order).
+  
+### 15. Train our first spam classifier! Let's transform the whole dataset
+  We will transform the whole dataset so that we can use it for building our model for spam classifier.
+  
+### 16. Print out the precision/recall we get on the test set  
+ In Precision, we should consider all positive samples that are classified as positive either correctly or incorrectly.
+ Recall of a machine learning model is dependent on positive samples and independent of negative samples
+ The recall cares about correctly classifying all positive samples. It does not consider if any negative sample is classified as positive.
+
+  
+  ## Conclusion :
+  We tried building 3 models on the spam data gathered.  
+  1. Logistic Regression  
+  2. Support Vector Machine(SVM)  
+  3. Naive Bayes  
+#### 1. Logistic Regression.
+  -The precision & recall was good with LogisticRegression.
+   -The Accuracy of the model was 0.995
+    -TYPE I & TYPE II errors were also less which is good as very less values were misclassified.
+
+#### 2. Support Vector Machine(SVM).
+  -The precision of the SVM model was considerable but recall of both the classes 0 & 1 had slight difference.
+   -Recall is most important thing to look for as this can show biasness of values towards a particular class.
+    -Accuracy of the model is 0.9383333333333334
+     -TYPE II error was more as it can be bad for the model as more values were misclassified into TYPE II.
+  
+  #### 3. Naive Bayes.  
+  -The precision & recall of the Naive Bayes were considerably good.  
+  -The Accuracy of the model - 0.925  
+  -TYPE II error was very few whereas TYPE I error was more in this model  
+  
+  ### Final Conclusion:  
+ Logistic Regression, we can observe that Accuracy(0.995) was quite good as compared to the other models.  
+The precision, recall values of the Logistic Regression were also considerably good.  
+Even the TYPE I & TYPE II error were low, which means only few of the values were misclassified.  
+So, we can say that Logistic Regresion performed good with the data provided to us.  
+
   
   
